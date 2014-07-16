@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.Toast;
@@ -18,6 +19,8 @@ public class MainActivity extends Activity implements OnClickListener {
 	private ImageButton recipeBook;
 	private ImageButton facebook;
 	private ImageButton site;
+	private ImageButton searchDone;
+	private EditText itemsInput;
 	LayoutInflater inflater;
 	LinearLayout generalLayout;
 	@Override
@@ -53,6 +56,9 @@ public class MainActivity extends Activity implements OnClickListener {
 			generalLayout.removeAllViews();
 			LinearLayout search = (LinearLayout) inflater.inflate(R.layout.search, null);
 			generalLayout.addView(search);
+			searchDone = (ImageButton) findViewById(R.id.search_done_button);
+			searchDone.setOnClickListener(this);
+			itemsInput = (EditText) findViewById(R.id.items_text_input);
 			Toast.makeText(this, "Not Implemented Yet", Toast.LENGTH_SHORT).show();
 		}
 		else if(arg0 == recipeBook){
@@ -66,6 +72,9 @@ public class MainActivity extends Activity implements OnClickListener {
 		}
 		else if(arg0 == site){
 			Toast.makeText(this, "Not Implemented Yet", Toast.LENGTH_SHORT).show();
+		}
+		else if (arg0 == searchDone){
+			Toast.makeText(this, "Shoud be Searching By Now: " + itemsInput.getText(), Toast.LENGTH_SHORT).show();
 		}
 
 	}
