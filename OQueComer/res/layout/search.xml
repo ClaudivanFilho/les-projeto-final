@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center"
-    android:orientation="vertical" >
+    android:orientation="vertical">
 
     <LinearLayout
         android:id="@+id/search_top"
@@ -49,6 +49,13 @@
         android:layout_height="wrap_content"
         android:background="@null"
         android:contentDescription="@string/done_button_help"
-        android:src="@drawable/botaopesquisar" />
+        android:src="@drawable/botaopesquisar" 
+        android:onClick="searchReceitas"/>
+
+    <ListView
+        android:id="@+id/listView1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+    </ListView>
 
 </LinearLayout>
