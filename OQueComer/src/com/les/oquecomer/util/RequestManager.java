@@ -18,7 +18,7 @@ import com.les.oquecomer.entity.Receita;
  */
 public class RequestManager {
 
-	public List<Receita> loadTIS(String[] nomeIngredientes) {
+	public List<Receita> loadReceitas(String[] nomeIngredientes) {
 		List<Receita> receitas = null;
 		JSONObject json;
 		try {
@@ -44,7 +44,21 @@ public class RequestManager {
 				float tempo = Float.parseFloat(child.getString("tempo"));
 				String infoNutri = child.getString("infoNutri");
 				String modoPreparo = child.getString("modoPreparo");
-				String[] ingredientesTemp = child.getString("ingredientes").split(",");
+				
+				JSONArray ingredientesJSON = child.getJSONArray("ingredientes");
+				
+				for(int j = 0; j < ingredientesJSON.length();j++){
+					JSONObject grandchild = ingredientesJSON.getJSONObject(j);
+					
+					String medida = grandchild.getString("medida");
+					float quantidade = Float.parseFloat(grandchild.getString("quantidade"));
+					String ingrediente = grandchild.getString("ingrediente");
+					Log.e("resultado ingrediente:", ingrediente);
+					
+				}
+				
+				//String[] ingredientesTemp = child.getString("ingredientes").split(",");
+				
 				
 //				Receita receita = new Receita(nome,nota,numPessoas,categoria,tempo,infoNutri,modoPreparo, ingredientes);
 				

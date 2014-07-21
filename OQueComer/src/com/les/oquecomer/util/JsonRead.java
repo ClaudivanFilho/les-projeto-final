@@ -11,6 +11,8 @@ import java.nio.charset.Charset;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import android.util.Log;
+
 public class JsonRead {
 
 	/**
@@ -21,6 +23,7 @@ public class JsonRead {
 	 */
 	public static JSONObject readJsonFromUrl(String url) throws IOException,
 			JSONException {
+		Log.e("erro url: ",url);
 		InputStream is = new URL(url).openStream();
 		try {
 			BufferedReader rd = new BufferedReader(new InputStreamReader(is,

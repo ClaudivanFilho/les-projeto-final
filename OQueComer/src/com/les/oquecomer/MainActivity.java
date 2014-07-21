@@ -1,6 +1,8 @@
 
 package com.les.oquecomer;
 
+import com.les.oquecomer.util.GerenciadorReceita;
+
 import android.os.Bundle;
 import android.app.Activity;
 import android.content.Context;
@@ -40,6 +42,11 @@ public class MainActivity extends Activity implements OnClickListener {
 		generalLayout.removeAllViews();
 		LinearLayout recipeBookView = (LinearLayout) inflater.inflate(R.layout.recipe_book_view, null);
 		generalLayout.addView(recipeBookView);
+		
+		GerenciadorReceita gerenciador = new GerenciadorReceita();
+		
+		String[] ingredientes = {"agua","gengibre"};
+		gerenciador.loadAndSyncronizedReceitas(ingredientes);
 
 	}
 
