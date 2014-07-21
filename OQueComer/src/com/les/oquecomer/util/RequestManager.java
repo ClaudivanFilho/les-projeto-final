@@ -64,10 +64,12 @@ public class RequestManager {
 				
 			}
 
-		} catch (IOException e) {
+		/*} catch (IOException e) {
 			Log.d("Load Receitas Erro IO", e.getMessage());
 		} catch (JSONException e) {
 			Log.d("Load Receitas Erro JSON", e.getMessage());
+		*/} catch (Exception e){
+			Log.e("trace geral", "message: "+e.getMessage()+" trace: "+e.getStackTrace().toString()+" cause: "+e.getCause());
 		}
 		return receitas;
 	}
