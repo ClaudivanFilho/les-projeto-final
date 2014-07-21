@@ -1,11 +1,15 @@
 
 package com.les.oquecomer;
 
+import java.net.URL;
+
 import com.les.oquecomer.util.GerenciadorReceita;
 
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.app.Activity;
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.View;
@@ -25,6 +29,9 @@ public class MainActivity extends Activity implements OnClickListener {
 	private EditText itemsInput;
 	LayoutInflater inflater;
 	LinearLayout generalLayout;
+	GerenciadorReceita gerenciador;
+	String[] ingredientes = {"agua","gengibre"};
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -43,11 +50,9 @@ public class MainActivity extends Activity implements OnClickListener {
 		LinearLayout recipeBookView = (LinearLayout) inflater.inflate(R.layout.recipe_book_view, null);
 		generalLayout.addView(recipeBookView);
 		
-		GerenciadorReceita gerenciador = new GerenciadorReceita();
+		gerenciador = new GerenciadorReceita();
 		
-		String[] ingredientes = {"agua","gengibre"};
-		gerenciador.loadAndSyncronizedReceitas(ingredientes);
-
+		new AtualizaListagem().execute();
 	}
 
 	@Override
@@ -84,6 +89,28 @@ public class MainActivity extends Activity implements OnClickListener {
 			Toast.makeText(this, "Shoud be Searching By Now: " + itemsInput.getText(), Toast.LENGTH_SHORT).show();
 		}
 
+	}
+	
+	class AtualizaListagem extends AsyncTask<URL, Integer, Long> {
+		/**
+		 * É executado em uma nova thread, para fazer a requisição.
+		 */
+		protected Long doInBackground(URL... urls) {
+			// carrega os tis remotamente com base no usuario de id=1
+			gerenciador.loadAndSyncronizedReceitas(ingredientes); 
+			return 0L;
+		}
+
+		protected void onProgressUpdate(Integer... progress) {
+			// setProgressPercen(progress[0]);
+		}
+		/**
+		 * É executado ao fim do doInBackground e é chamado na thread original
+		 * da activity.
+		 */
+		protected void onPostExecute(Long result) {
+			Log.d("Receitas", gerenciador.getRecceitas().toString());
+		}
 	}
 
 }
