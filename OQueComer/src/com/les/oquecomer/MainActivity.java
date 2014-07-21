@@ -39,17 +39,17 @@ public class MainActivity extends Activity implements OnClickListener {
 		inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 		generalLayout = (LinearLayout) findViewById(R.id.generalLayout);
 		recipeSearch = (ImageButton) findViewById(R.id.recipeSearch);
-		recipeBook = (ImageButton) findViewById(R.id.recipeBook);
-		facebook = (ImageButton) findViewById(R.id.facebook);
-		site = (ImageButton) findViewById(R.id.site);
+//		recipeBook = (ImageButton) findViewById(R.id.recipeBook);
+//		facebook = (ImageButton) findViewById(R.id.facebook);
+//		site = (ImageButton) findViewById(R.id.site);
 		recipeSearch.setOnClickListener(this);
-		recipeBook.setOnClickListener(this);
-		facebook.setOnClickListener(this);
-		site.setOnClickListener(this);
+//		recipeBook.setOnClickListener(this);
+//		facebook.setOnClickListener(this);
+//		site.setOnClickListener(this);
 		generalLayout.removeAllViews();
-		LinearLayout recipeBookView = (LinearLayout) inflater.inflate(R.layout.recipe_book_view, null);
-		generalLayout.addView(recipeBookView);
-		
+//		LinearLayout recipeBookView = (LinearLayout) inflater.inflate(R.layout.recipe_book_view, null);
+//		generalLayout.addView(recipeBookView);
+//		
 		gerenciador = new GerenciadorReceita();
 		
 		new AtualizaListagem().execute();
@@ -71,7 +71,7 @@ public class MainActivity extends Activity implements OnClickListener {
 			searchDone = (ImageButton) findViewById(R.id.search_done_button);
 			searchDone.setOnClickListener(this);
 			itemsInput = (EditText) findViewById(R.id.items_text_input);
-			Toast.makeText(this, "Not Implemented Yet", Toast.LENGTH_SHORT).show();
+			//Toast.makeText(this, "Not Implemented Yet", Toast.LENGTH_SHORT).show();
 		}
 		else if(arg0 == recipeBook){
 			generalLayout.removeAllViews();

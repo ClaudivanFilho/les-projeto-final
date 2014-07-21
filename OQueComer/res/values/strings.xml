@@ -10,7 +10,7 @@
     <string name="page_help">Visite nossa página</string>
     <string name="recipe_image_help">Imagem da receita</string>
     <string name="pesquisar_receita">Pesquisar Receita</string>
-    <string name="ingredientes_text">Ingredientes: </string>
+    <string name="ingredientes_text">Ingrediente: </string>
     <string name="done_button_help">Clique aqui para pesquisar</string>
 
 </resources>

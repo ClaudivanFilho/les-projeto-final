@@ -19,40 +19,17 @@
     <LinearLayout
         android:id="@+id/buttonsLayout"
         android:layout_width="100dp"
-        android:layout_height="match_parent"
+        android:layout_height="280dp"
+        android:layout_weight="0.24"
         android:orientation="vertical" >
 
         <ImageButton
             android:id="@+id/recipeSearch"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_weight="1"
-            android:src="@drawable/ic_launcher" 
-            android:contentDescription="@string/recipe_search_help"/>
-
-        <ImageButton
-            android:id="@+id/recipeBook"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_weight="1"
-            android:src="@drawable/ic_launcher"
-        	android:contentDescription="@string/recipe_book_help"/>
-
-        <ImageButton
-            android:id="@+id/facebook"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_weight="1"
-            android:src="@drawable/ic_launcher"
-            android:contentDescription="@string/facebook_help"/>
-
-        <ImageButton
-            android:id="@+id/site"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_weight="1"
-            android:src="@drawable/ic_launcher"
-            android:contentDescription="@string/page_help"/>
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@null"
+            android:contentDescription="@string/recipe_search_help"
+            android:src="@drawable/lupa" />
     </LinearLayout>
 
     <LinearLayout
