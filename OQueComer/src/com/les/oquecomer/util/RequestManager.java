@@ -17,7 +17,6 @@ public class RequestManager {
 	public List<JSONObject> loadReceitas(String[] nomeIngredientes) {
 		List<JSONObject> receitasLista = new ArrayList<JSONObject>();
 		
-		try {
 			String url = AppConfig.HOST_PORT;
 			if(nomeIngredientes.length > 0){
 				url = url+nomeIngredientes[0];
@@ -25,15 +24,17 @@ public class RequestManager {
 			for (int i = 1; i< nomeIngredientes.length;i++){
 				url = url+","+nomeIngredientes[i];
 			}
-			receitasLista = JsonRead.readJsonFromUrl(url);
+			try {
+				receitasLista = JsonRead.readJsonFromUrl(url);
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (JSONException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 
-		} catch (IOException e) {
-			Log.d("Load Receitas Erro IO", e.getMessage());
-		} catch (JSONException e) {
-			Log.d("Load Receitas Erro JSON", e.getMessage());
-		} catch (Exception e){
-			Log.d("trace geral", "message: "+e.getMessage()+" trace: "+e.getStackTrace().toString()+" cause: "+e.getCause());
-		}
+		
 		return receitasLista;
 	}
 }
