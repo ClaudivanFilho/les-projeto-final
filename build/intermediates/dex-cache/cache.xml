@@ -2,17 +2,29 @@
 <pre-dex-items>
 
     <item
-        dex="C:\Users\Claudivan\AndroidStudioProjects\OQueComer1\app\build\intermediates\pre-dexed\debug\support-annotations-20.0.0-b2a95588a744186eb73813d288ad4efba1043c09.jar"
-        jar="C:\Program Files\AndroidStudio\sdk\extras\android\m2repository\com\android\support\support-annotations\20.0.0\support-annotations-20.0.0.jar"
+        dex="C:\Users\Claudivan\git\lesProjetoAndroid\app\build\intermediates\pre-dexed\debug\internal_impl-20.0.0-ea18239636d017410728ef13a25f8a7f384aedb7.jar"
+        jar="C:\Users\Claudivan\git\lesProjetoAndroid\app\build\intermediates\exploded-aar\com.android.support\support-v4\20.0.0\libs\internal_impl-20.0.0.jar"
         jumboMode="false"
         revision="20.0.0"
-        sha1="9d9013e9ff35fc3756411e62873c363c70c638fa"/>
+        sha1="e40b3078e3fbd353c9f44da8df25a8fc0078209d"/>
+    <item
+        dex="C:\Users\Claudivan\git\lesProjetoAndroid\app\build\intermediates\pre-dexed\debug\classes-ccbb8023940b65bcb86f9fc9b9f16a073e664187.jar"
+        jar="C:\Users\Claudivan\git\lesProjetoAndroid\app\build\intermediates\exploded-aar\com.android.support\support-v4\20.0.0\classes.jar"
+        jumboMode="false"
+        revision="20.0.0"
+        sha1="8694693636ab36910c8100ce527c258ff3ebece0"/>
     <item
         dex="C:\Users\Claudivan\AndroidStudioProjects\OQueComer1\app\build\intermediates\pre-dexed\debug\classes-0b9e99c9b06fca08bc26e18748df6f1eba046675.jar"
         jar="C:\Users\Claudivan\AndroidStudioProjects\OQueComer1\app\build\intermediates\exploded-aar\com.android.support\support-v4\20.0.0\classes.jar"
         jumboMode="false"
         revision="20.0.0"
         sha1="8694693636ab36910c8100ce527c258ff3ebece0"/>
+    <item
+        dex="C:\Users\Claudivan\AndroidStudioProjects\OQueComer1\app\build\intermediates\pre-dexed\debug\support-annotations-20.0.0-b2a95588a744186eb73813d288ad4efba1043c09.jar"
+        jar="C:\Program Files\AndroidStudio\sdk\extras\android\m2repository\com\android\support\support-annotations\20.0.0\support-annotations-20.0.0.jar"
+        jumboMode="false"
+        revision="20.0.0"
+        sha1="9d9013e9ff35fc3756411e62873c363c70c638fa"/>
     <item
         dex="C:\Users\Claudivan\AndroidStudioProjects\OQueComer1\app\build\intermediates\pre-dexed\debug\internal_impl-20.0.0-d56afd2b24a990fbc977e92558e1fd3cf80af87c.jar"
         jar="C:\Users\Claudivan\AndroidStudioProjects\OQueComer1\app\build\intermediates\exploded-aar\com.android.support\support-v4\20.0.0\libs\internal_impl-20.0.0.jar"

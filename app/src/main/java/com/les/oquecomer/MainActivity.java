@@ -8,7 +8,9 @@ import java.util.ArrayList;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import android.animation.AnimatorSet;
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.AsyncTask;
@@ -97,22 +99,26 @@ public class MainActivity extends Activity implements OnClickListener {
 	
 	class AtualizaListagem extends AsyncTask<URL, Integer, Long> {
         private ProgressDialog dialog;
+        private AlertDialog.Builder alert;
+        private String erro = null;
 
         public AtualizaListagem(MainActivity activity) {
             dialog = new ProgressDialog(activity);
+            alert = new AlertDialog.Builder(activity);
         }
 
 		protected Long doInBackground(URL... urls) {
             try {
                 gerenciador.loadAndSyncronizedReceitas(ingredientes);
             } catch (IOException e) {
-                Toast.makeText(MainActivity.this, "Erro na requisição!", Toast.LENGTH_SHORT).show();
+                erro = "Erro na requisição! O App encontrou problemas quanto a internet!";
             } catch (JSONException e) {
-                Toast.makeText(MainActivity.this, "Erro com a resposta do servidor!", Toast.LENGTH_SHORT).show();
+                erro = "Erro com a resposta do servidor!";
             }
             return 0L;
 		}
 
+        @Override
 		protected void onProgressUpdate(Integer... progress) {
 		}
 
@@ -123,17 +129,29 @@ public class MainActivity extends Activity implements OnClickListener {
         }
 
 		protected void onPostExecute(Long result) {
-            if (dialog.isShowing()) {
+            if (erro != null) {
                 dialog.dismiss();
+                alert.setMessage(erro);
+                try {
+                    Thread.sleep(1000);
+                } catch (InterruptedException e) {
+                }
+                erro = null;
+                alert.show();
+            } else {
+                if (dialog.isShowing()) {
+                    dialog.dismiss();
+                }
+                adapter.clear();
+                for (JSONObject j : gerenciador.getRecceitas()) {
+                    try {
+                        adapter.add(j.getString("nome") + "\n" + "Nota:" + j.getString("nota"));
+                    } catch (JSONException e) {
+                        alert.setMessage("Erro ao adicionar Receita à lista.!");
+                        alert.show();
+                    }
+                }
             }
-			adapter.clear();
-			for(JSONObject j: gerenciador.getRecceitas()) {
-				try {
-					adapter.add(j.getString("nome") + "\n" + "Nota:" + j.getString("nota"));
-				} catch (JSONException e) {
-                    Toast.makeText(MainActivity.this, "Erro ao adicionar Receita à lista.!", Toast.LENGTH_SHORT).show();
-				}
-			}
 		}
 	}
 

@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <!-- From: file:/C:/Users/Claudivan/AndroidStudioProjects/OQueComer1/app/src/main/res/values/dimens.xml -->
+    <!-- From: file:/C:/Users/Claudivan/git/lesProjetoAndroid/app/src/main/res/values/dimens.xml -->
     <eat-comment />
 
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
     <dimen name="margin">0dp</dimen>
-    <!-- From: file:/C:/Users/Claudivan/AndroidStudioProjects/OQueComer1/app/src/main/res/values/integers.xml -->
+    <!-- From: file:/C:/Users/Claudivan/git/lesProjetoAndroid/app/src/main/res/values/integers.xml -->
     <eat-comment />
 
     <integer name="columnCount">4</integer>
-    <!-- From: file:/C:/Users/Claudivan/AndroidStudioProjects/OQueComer1/app/src/main/res/values/strings.xml -->
+    <!-- From: file:/C:/Users/Claudivan/git/lesProjetoAndroid/app/src/main/res/values/strings.xml -->
     <eat-comment />
 
     <string name="action_settings">Settings</string>
@@ -25,7 +25,7 @@
     <string name="recipe_book_help">Veja suas receitas preferidas.</string>
     <string name="recipe_image_help">Imagem da receita</string>
     <string name="recipe_search_help">Procure por receitas</string>
-    <!-- From: file:/C:/Users/Claudivan/AndroidStudioProjects/OQueComer1/app/src/main/res/values/styles.xml -->
+    <!-- From: file:/C:/Users/Claudivan/git/lesProjetoAndroid/app/src/main/res/values/styles.xml -->
     <eat-comment />
 
     <style name="AppBaseTheme" parent="android:Theme.Light">
