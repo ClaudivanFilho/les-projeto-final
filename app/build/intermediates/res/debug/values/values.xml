@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- From: file:/C:/Users/Claudivan/AndroidStudioProjects/OQueComer1/app/src/main/res/values/dimens.xml -->
+    <eat-comment />
+
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="margin">0dp</dimen>
+    <!-- From: file:/C:/Users/Claudivan/AndroidStudioProjects/OQueComer1/app/src/main/res/values/integers.xml -->
+    <eat-comment />
+
+    <integer name="columnCount">4</integer>
+    <!-- From: file:/C:/Users/Claudivan/AndroidStudioProjects/OQueComer1/app/src/main/res/values/strings.xml -->
+    <eat-comment />
+
+    <string name="action_settings">Settings</string>
+    <string name="app_name">O Que Comer</string>
+    <string name="done_button_help">Clique aqui para pesquisar</string>
+    <string name="facebook_help">Visite nossa página no facebook</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="ingredientes_text">Ingrediente: </string>
+    <string name="page_help">Visite nossa página</string>
+    <string name="pesquisar_receita">Pesquisar Receita</string>
+    <string name="recipe_book_help">Veja suas receitas preferidas.</string>
+    <string name="recipe_image_help">Imagem da receita</string>
+    <string name="recipe_search_help">Procure por receitas</string>
+    <!-- From: file:/C:/Users/Claudivan/AndroidStudioProjects/OQueComer1/app/src/main/res/values/styles.xml -->
+    <eat-comment />
+
+    <style name="AppBaseTheme" parent="android:Theme.Light">
+        <!--
+            Theme customizations available in newer API levels can go in
+            res/values-vXX/styles.xml, while customizations related to
+            backward-compatibility can go here.
+        -->
+    </style>
+
+    <style name="AppTheme" parent="AppBaseTheme">
+        <!-- All customizations that are NOT specific to a particular API-level can go here. -->
+    </style>
+
+</resources>
