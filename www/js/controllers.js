@@ -1,5 +1,14 @@
 angular.module('starter.controllers', [])
 
+.controller('MainCtrl', function ($scope) {
+    $scope.recipes = [];
+    $scope.ing = "";
+    $scope.ingredientes = [];
+    $scope.setRecipes = function(recps) {
+      $scope.recipes = recps;
+    }
+})
+
 .controller('DashCtrl', function ($scope, $location, OpenFB) {
 
     $scope.facebookLogin = function () {
@@ -16,11 +25,23 @@ angular.module('starter.controllers', [])
 })
 
 .controller('RecipesCtrl', function ($scope, $http, Recipes) {
-    $scope.ings = "";
-    $scope.recipes = [];
-
-    $scope.send = function(ings) {
-        $scope.recipes = Recipes.all(ings);
+    $scope.addIng = function(ing) {
+      if (ing !== "") {
+        $scope.ingredientes.push(ing);
+        var myEl = document.getElementById('ingrediente');
+        myEl.value = "";
+      }
+    }
+    $scope.send = function() {
+        var ings = "";
+        for (var $i in $scope.ingredientes) {
+          if (ings === "") {
+            ings += $scope.ingredientes[$i];
+          } else {
+            ings += "," + $scope.ingredientes[$i];
+          }
+        }
+        $scope.$parent.setRecipes(Recipes.all(ings));
     }
 })
 
