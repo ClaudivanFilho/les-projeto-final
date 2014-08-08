@@ -23,7 +23,11 @@
           </div>
           <br>
           <ion-item ng-repeat="recipe in recipes" type="item-text-wrap" href="#/tab/recipe/{{$index}}">
+              <label  class="ion-fork" style="font-size:30px;margin-left:20px;" >
+              </label>
+              <i style="margin-left:20px;">
               {{recipe.nome}}
+              </i>
           </ion-item>
         </ion-list>
     </ion-content>
