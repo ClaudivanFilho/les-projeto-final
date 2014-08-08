@@ -47,6 +47,15 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
         }
       }
     })
+    .state('tab.restricted', {
+      url: '/restricted/:recipeId',
+      views: {
+        'tab-restricted': {
+          templateUrl: 'templates/tab-restricted.html',
+          controller: 'RestrictedCtrl'
+        }
+      }
+    })
     // TO DO  === Ainda nao implemetado
     .state('app.share', {
         url: "/share",
