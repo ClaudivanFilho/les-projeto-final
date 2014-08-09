@@ -18,7 +18,11 @@ angular.module('starter.services', [])
         return recipes;
     },
     get: function(recipeId) {
-      return recipes[recipeId];
+      for ($rec in recipes) {
+          if (recipes[$rec].id == recipeId) {
+              return recipes[$rec];
+          }
+      }
     }
 
   }

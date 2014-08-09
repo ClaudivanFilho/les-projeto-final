@@ -14,7 +14,6 @@ angular.module('starter.controllers', [])
     $scope.facebookLogin = function () {
         OpenFB.login('email,publish_stream').then(
             function () {
-
                 $location.path('/tab/account');
             },
             function () {
@@ -24,7 +23,9 @@ angular.module('starter.controllers', [])
 
 })
 
-.controller('RecipesCtrl', function ($scope, $http, Recipes) {
+.controller('RecipesCtrl', function ($scope, $http, $location, Recipes) {
+    $scope.predicate = 'nota';
+    $scope.reverse = true;
     $scope.addIng = function(ing) {
       if (ing !== "") {
         $scope.ingredientes.push(ing);
@@ -42,6 +43,10 @@ angular.module('starter.controllers', [])
           }
         }
         $scope.$parent.setRecipes(Recipes.all(ings));
+    }
+    $scope.show = function(index) {
+        $location.path('tab/recipe/' + index);
+        //#/tab/recipe/{{$index}}
     }
 })
 
