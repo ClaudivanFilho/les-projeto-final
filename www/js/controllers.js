@@ -45,6 +45,27 @@ angular.module('starter.controllers', [])
     }
 })
 
+.controller('RestrictedCtrl', function ($scope, $http, Recipes) {
+    $scope.addIng = function(ing) {
+      if (ing !== "") {
+        $scope.ingredientes.push(ing);
+        var myEl = document.getElementById('ingrediente');
+        myEl.value = "";
+      }
+    }
+    $scope.send = function() {
+        var ings = "";
+        for (var $i in $scope.ingredientes) {
+          if (ings === "") {
+            ings += $scope.ingredientes[$i];
+          } else {
+            ings += "," + $scope.ingredientes[$i];
+          }
+        }
+        $scope.$parent.setRecipes(Recipes.all(ings));
+    }
+})
+
 .controller('RecipeDetailCtrl', function ($scope, $stateParams, Recipes) {
     $scope.recipe = Recipes.get($stateParams.recipeId);
 })
