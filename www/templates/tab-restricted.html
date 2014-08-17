@@ -7,8 +7,7 @@
               <label class="item-input-wrapper" style="height:45px;">
                 <input id="ingrediente" type="text" placeholder="ingrediente" ng-model="ing" style="font-size:25px;">
               </label>
-              <a class="button icon-left ion-chevron-left button-clear button-dark"
-                 style="margin:10px;float:right;" ng-click="removeIng(ing)">Deletar</a>
+              
               <a class="button button-icon icon ion-plus-circled" style="font-size:30px;" ng-click="addIng(ing)"></a>
             </div>
           </div>
@@ -20,8 +19,11 @@
                   style="margin:10px;">
                {{ingrediente}}
               </a>
+              
               <a class="button icon-right ion-chevron-right button-calm"
                  style="margin:10px;float:right;" ng-click="send()">Pesquisar</a>
+              <a class="button icon-left ion-chevron-left button-clear button-dark"
+                 style="margin:10px;float:right;" ng-click="removeIng(ing)">Deletar</a>
                  
             </div>
           </div>

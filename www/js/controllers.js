@@ -35,7 +35,7 @@ angular.module('starter.controllers', [])
     }
     $scope.removeIng = function(ing) {
       if (ing !== "") {
-        $scope.ingredientes.remove(ing);
+        $scope.ingredientes.pop(ing);
         var myEl = document.getElementById('ingrediente');
         myEl.value = "";
       }
