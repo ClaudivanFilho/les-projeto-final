@@ -34,7 +34,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
       views: {
         'tab-restricted': {
           templateUrl: 'templates/tab-restricted.html',
-          controller: 'RestrictedCtrl'
+          controller: 'RecipesCtrl'
         }
       }
     })

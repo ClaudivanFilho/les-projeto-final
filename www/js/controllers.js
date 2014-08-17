@@ -33,6 +33,13 @@ angular.module('starter.controllers', [])
         myEl.value = "";
       }
     }
+    $scope.removeIng = function(ing) {
+      if (ing !== "") {
+        $scope.ingredientes.remove(ing);
+        var myEl = document.getElementById('ingrediente');
+        myEl.value = "";
+      }
+    }
     $scope.send = function() {
         var ings = "";
         for (var $i in $scope.ingredientes) {
