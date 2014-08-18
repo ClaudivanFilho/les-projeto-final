@@ -42,13 +42,13 @@ angular.module('starter.controllers', [])
     }
     $scope.clearIngs = function(ing) {
       if (ing !== "") {
-        $scope.ingredientes = [];
+        $scope.$parent.ingredientes.length = 0;
         //var myEl = document.getElementById('ingrediente');
        // myEl.value = "";
       }
     }
     $scope.clearRecipe = function() {
-        $scope.recipes = [];
+        $scope.recipes.splice(0,$scope.recipes.length);;
         //var myEl = document.getElementById('ingrediente');
        // myEl.value = "";
 
