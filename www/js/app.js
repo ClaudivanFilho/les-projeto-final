@@ -29,15 +29,6 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
         }
       }
     })
-    .state('tab.restricted', {
-      url: '/restricted',
-      views: {
-        'tab-restricted': {
-          templateUrl: 'templates/tab-restricted.html',
-          controller: 'RecipesCtrl'
-        }
-      }
-    })
     .state('tab.recipes-detail', {
       url: '/recipe/:recipeId',
       views: {

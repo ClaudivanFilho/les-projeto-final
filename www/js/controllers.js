@@ -48,12 +48,13 @@ angular.module('starter.controllers', [])
       }
     }
     $scope.clearRecipe = function() {
-        $scope.recipes.splice(0,$scope.recipes.length);;
+        $scope.recipes.splice(0,$scope.recipes.length);
+        $scope.$parent.setRecipes($scope.recipes);
         //var myEl = document.getElementById('ingrediente');
        // myEl.value = "";
 
     }
-    $scope.send = function() {
+    $scope.send = function(type) {
         var ings = "";
         for (var $i in $scope.ingredientes) {
           if (ings === "") {
@@ -62,46 +63,17 @@ angular.module('starter.controllers', [])
             ings += "," + $scope.ingredientes[$i];
           }
         }
-        $scope.$parent.setRecipes(Recipes.all(ings));
+        if (type == true) {
+            $scope.$parent.setRecipes(Recipes.allRestricted(ings));
+        } else {
+            $scope.$parent.setRecipes(Recipes.all(ings));
+        }
     }
     $scope.show = function(index) {
         $location.path('tab/recipe/' + index);
         //#/tab/recipe/{{$index}}
     }
-    $scope.sendRestricted = function() {
-        var ings = "";
-        for (var $i in $scope.ingredientes) {
-          if (ings === "") {
-            ings += $scope.ingredientes[$i];
-          } else {
-            ings += "," + $scope.ingredientes[$i];
-          }
-        }
-        $scope.$parent.setRecipes(Recipes.allRestricted(ings));
-    }
 })
-
-.controller('RestrictedCtrl', function ($scope, $http, Recipes) {
-    $scope.addIng = function(ing) {
-      if (ing !== "") {
-        $scope.ingredientes.push(ing);
-        var myEl = document.getElementById('ingrediente');
-        myEl.value = "";
-      }
-    }
-    $scope.send = function() {
-        var ings = "";
-        for (var $i in $scope.ingredientes) {
-          if (ings === "") {
-            ings += $scope.ingredientes[$i];
-          } else {
-            ings += "," + $scope.ingredientes[$i];
-          }
-        }
-        $scope.$parent.setRecipes(Recipes.all(ings));
-    }
-})
-
 .controller('RecipeDetailCtrl', function ($scope, $stateParams, Recipes) {
     $scope.recipe = Recipes.get($stateParams.recipeId);
 })
