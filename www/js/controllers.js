@@ -36,9 +36,22 @@ angular.module('starter.controllers', [])
     $scope.removeIng = function(ing) {
       if (ing !== "") {
         $scope.ingredientes.pop(ing);
-        var myEl = document.getElementById('ingrediente');
-        myEl.value = "";
+        //var myEl = document.getElementById('ingrediente');
+       // myEl.value = "";
       }
+    }
+    $scope.clearIngs = function(ing) {
+      if (ing !== "") {
+        $scope.ingredientes = [];
+        //var myEl = document.getElementById('ingrediente');
+       // myEl.value = "";
+      }
+    }
+    $scope.clearRecipe = function() {
+        $scope.recipes = [];
+        //var myEl = document.getElementById('ingrediente');
+       // myEl.value = "";
+
     }
     $scope.send = function() {
         var ings = "";
