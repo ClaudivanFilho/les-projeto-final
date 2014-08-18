@@ -68,6 +68,17 @@ angular.module('starter.controllers', [])
         $location.path('tab/recipe/' + index);
         //#/tab/recipe/{{$index}}
     }
+    $scope.sendRestricted = function() {
+        var ings = "";
+        for (var $i in $scope.ingredientes) {
+          if (ings === "") {
+            ings += $scope.ingredientes[$i];
+          } else {
+            ings += "," + $scope.ingredientes[$i];
+          }
+        }
+        $scope.$parent.setRecipes(Recipes.allRestricted(ings));
+    }
 })
 
 .controller('RestrictedCtrl', function ($scope, $http, Recipes) {
