@@ -23,16 +23,8 @@ angular.module('starter.services', [])
               return recipes[$rec];
           }
       }
-    }
-
-  }
-})
-.factory('RecipesRestricted', function($http) {
-  var recipes = [
-  ];
-
-  return {
-    all: function(ings) {
+    },
+    allRestricted: function(ings) {
       $http({
             method: 'GET',
             url: 'http://oquecomer.herokuapp.com/api/receitasrestritas?ingredientes=' + ings}).
@@ -43,14 +35,6 @@ angular.module('starter.services', [])
             alert('Falha na Conexão com a Internet');
         });
         return recipes;
-    },
-    get: function(recipeId) {
-      for ($rec in recipes) {
-          if (recipes[$rec].id == recipeId) {
-              return recipes[$rec];
-          }
-      }
     }
-
   }
 });
