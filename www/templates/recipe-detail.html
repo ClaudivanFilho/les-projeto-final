@@ -4,13 +4,13 @@
 
   	<span class="item">
         <div class="item item-avatar">
-            <img src="img/recipe.jpg">
+            <img src="{{recipe.path_img}}">
             <h2>{{recipe.nome}}</h2>
             <p>Prato para: {{recipe.numPessoas}} pessoas</p>
         </div>
             <div class="col-center" style="text-align: center;">
-                <img class="full-image" src="img/recipe.jpg"
-                     style="max-width:500px;border:6px groove rgba(220,20,20,0.4)">
+                <img class="full-image" src="{{recipe.path_img}}"
+                     style="max-height:270px;width:auto;border:6px groove rgba(220,20,20,0.4);margin:20px;">
             </div>
             <h4><strong>Modo De Preparo</strong></h4>
             <p> {{recipe.modoPreparo}} </p>

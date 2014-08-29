@@ -24,6 +24,9 @@ angular.module('starter.services', [])
           }
       }
     },
+    setAll: function(receitas) {
+      recipes = receitas;
+    },
     allRestricted: function(ings) {
       $http({
             method: 'GET',

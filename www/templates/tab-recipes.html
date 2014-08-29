@@ -1,80 +1,40 @@
-<ion-view title="Receitas">
-    <ion-content class="has-header">
+<ion-view title="Receitas" class="bg1">
+    <ion-content class="has-header bg1" style="">
         <ion-list>
-          <div class="list">
-          
-            <div class="item item-input-inset" style="height:75px;">
-              <label class="item-input-wrapper" style="height:45px;">
-                <input id="ingrediente" type="text" placeholder="ingrediente" ng-model="ing" style="font-size:25px;">
-              </label>
-              <a class="button button-icon icon ion-plus-circled" style="font-size:30px;" ng-click="addIng(ing)"></a>
+            <div class="list bg1">
+                <small style="margin-left:20px;">
+                    Adicione seus ingrediente e pesquise suas receitas!</small>
+                <div class="item item-input-inset bg1" style="height:75px;padding:0px;">
+                    <label class="item-input-wrapper bg1" style="height:45px;border: 1px solid rgba(0,0,0,0.2);">
+                        <input id="ingrediente" type="text" placeholder="ingrediente" ng-model="ing"
+                               style="font-size:25px;">
+                    </label>
+                    <a class="button button-icon icon ion-plus-circled" style="font-size:30px;"
+                       ng-click="addIng(ing)"></a>
+                </div>
             </div>
-          </div>
-          <div style="margin:20px;">
-            <h4>  Ingredientes:</h4>
-            <div id='div_ingredientes' class="item item-divider">
-              
-              <a ng-repeat="ingrediente in ingredientes" class="button button-outline button-balanced"
-                  style="margin:10px;">
-               {{ingrediente}}
-              </a>
-              
-              <a class="button icon-right ion-chevron-right button-calm"
-                 style="margin:10px;float:right;" ng-click="send()">Pesquisar</a>
-              <a class="button icon-left ion-chevron-left button-clear button-dark"
-                 style="margin:10px;float:right;" ng-click="removeIng(ing)">Deletar</a>
-                 
-          </div>
-          <div>
-          	<a class="button button-small button-dark"
-          	style="margin:10px;float:right;" ng-click="clearIngs(); clearRecipe();">
-			  Limpar Pesquisa
-			</a>
-          </div>
-          <br>
-            <style>
-                .filt{margin-left: 5px;margin-right: 5px;}
-            </style>
-          <div class="table-responsive">
-            <table class="table table-hover">
-                <thead>
-                    <tr >
-                        <th style="cursor: pointer" type="item-text-wrap"
-                                ng-click="predicate = 'nome'; reverse=!reverse">
-                            <i class="ion-arrow-left-b"></i>
-                            <span class="filt">Nome</span>
-                            <i class="ion-arrow-right-b"></i>
-                        </th>
-                        <th style="cursor: pointer"
-                                ng-click="predicate = 'nota'; reverse=!reverse">
-                            <i class="ion-arrow-left-b"></i>
-                            <span class="filt">Nota</span>
-                            <i class="ion-arrow-right-b"></i></th>
-                        <th style="cursor: pointer"
-                                ng-click="predicate = 'categoria'; reverse=!reverse">
-                            Categoria</th>
-                        <th style="cursor: pointer"
-                                ng-click="predicate = 'tempo'; reverse=!reverse">
-                            <i class="ion-arrow-left-b"></i>
-                            <span class="filt">Tempo</span>
-                            <i class="ion-arrow-right-b"></i></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr ng-repeat="recipe in recipes | orderBy:predicate:reverse"
-                        ng-click="show(recipe.id)" style="cursor: pointer;">
-                        <td class="" type="item-text-wrap">
-                            <label  class="ion-fork" style="font-size:30px;margin-left:20px;" >
-                            </label>
-                            <i style="margin-left:20px;">{{recipe.nome}}</i>
-                        </td>
-                        <td>{{recipe.nota}} </td>
-                        <td>{{recipe.categoria}}</td>
-                        <td>{{recipe.tempo}} hrs</td>
-                    </tr>
-                </tbody>
-            </table>
-          </div>
+            <div style="margin:20px;margin-bottom:0px;">
+                <h4> Ingredientes Para Pesquisar:</h4>
+
+                <small>aperte no ingrediente para removê-lo</small>
+                <div id='div_ingredientes' style="border: 1px solid rgba(0,0,0,0.2);min-height:4px;margin-bottom:10px;">
+
+                    <a ng-repeat="ingrediente in ingredientes"
+                       class="button button-outline button-balanced"
+                       style="margin:10px;" ng-click="delIng($index)">
+                        {{ingrediente}}
+                    </a>
+                </div>
+                <a class="button button-small icon-right ion-chevron-right button-calm"
+                       style="float:right;margin-left:5px;" ng-click="send()">Pesquisar</a>
+                <a class="button button-small button-dark"
+                     style="float:right;" ng-click="clearIngs(); clearRecipe();">
+                        Limpar
+                </a>
+
+                <br>
+            </div>
+
         </ion-list>
     </ion-content>
 </ion-view>

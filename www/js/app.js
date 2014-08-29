@@ -1,8 +1,4 @@
-angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', 'openfb'])
-.run(function ($rootScope, $state, $ionicPlatform, $window, OpenFB) {
-    // Facebook AppId and CallBack
-    OpenFB.init('594340457341054', 'http://192.168.1.12:8100/oauthcallback.html');
-})
+angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
 
 .config(function($stateProvider, $urlRouterProvider) {
   $stateProvider
@@ -38,24 +34,14 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
         }
       }
     })
-    .state('tab.account', {
-      url: '/account',
+    .state('tab.search', {
+      url: '/search',
       views: {
-        'tab-account': {
-          templateUrl: 'templates/tab-account.html',
-          controller: 'AccountCtrl'
+        'tab-recipes': {
+          templateUrl: 'templates/search-result.html',
+          controller: 'SearchCtrl'
         }
       }
-    })
-    // TO DO  === Ainda nao implemetado
-    .state('app.share', {
-        url: "/share",
-        views: {
-            'menuContent': {
-                templateUrl: "templates/share.html",
-                controller: "ShareCtrl"
-            }
-        }
     })
 
   // if none of the above states are matched, use this as the fallback

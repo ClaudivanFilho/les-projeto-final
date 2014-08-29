@@ -4,28 +4,20 @@ angular.module('starter.controllers', [])
     $scope.recipes = [];
     $scope.ing = "";
     $scope.ingredientes = [];
+    $scope.selected = "";
+    $scope.setSelected = function(rec) {
+        $scope.selected = rec;
+    }
     $scope.setRecipes = function(recps) {
       $scope.recipes = recps;
     }
 })
 
-.controller('DashCtrl', function ($scope, $location, OpenFB) {
-
-    $scope.facebookLogin = function () {
-        OpenFB.login('email,publish_stream').then(
-            function () {
-                $location.path('/tab/account');
-            },
-            function () {
-                alert('OpenFB login failed');
-            });
-    };
+.controller('DashCtrl', function ($scope, $location) {
 
 })
 
 .controller('RecipesCtrl', function ($scope, $http, $location, Recipes) {
-    $scope.predicate = 'nota';
-    $scope.reverse = true;
     $scope.addIng = function(ing) {
       if (ing !== "") {
         $scope.ingredientes.push(ing);
@@ -33,26 +25,13 @@ angular.module('starter.controllers', [])
         myEl.value = "";
       }
     }
-    $scope.removeIng = function(ing) {
-      if (ing !== "") {
-        $scope.ingredientes.pop(ing);
-        //var myEl = document.getElementById('ingrediente');
-       // myEl.value = "";
-      }
+    $scope.delIng = function(index) {
+        $scope.ingredientes.splice(index,1);
     }
     $scope.clearIngs = function(ing) {
       if (ing !== "") {
         $scope.$parent.ingredientes.length = 0;
-        //var myEl = document.getElementById('ingrediente');
-       // myEl.value = "";
       }
-    }
-    $scope.clearRecipe = function() {
-        $scope.recipes.splice(0,$scope.recipes.length);
-        $scope.$parent.setRecipes($scope.recipes);
-        //var myEl = document.getElementById('ingrediente');
-       // myEl.value = "";
-
     }
     $scope.send = function(type) {
         var ings = "";
@@ -65,37 +44,31 @@ angular.module('starter.controllers', [])
         }
         if (type == true) {
             $scope.$parent.setRecipes(Recipes.allRestricted(ings));
+            $location.path('tab/search');
         } else {
-            $scope.$parent.setRecipes(Recipes.all(ings));
+            $http({
+                    method: 'GET',
+                    url: 'http://oquecomer.herokuapp.com/api/receitas?ingredientes=' + ings}).
+                success(function (data, status) {
+                    Recipes.setAll(data);
+                    $scope.$parent.setRecipes(data);
+                    $location.path('tab/search');
+                }).
+                error(function (data, status) {
+                    alert('Falha na Conexão com a Internet');
+                }
+            );
         }
     }
+})
+.controller('SearchCtrl', function ($scope, $http, $location, Recipes) {
+    $scope.predicate = 'nota';
+    $scope.reverse = true;
     $scope.show = function(index) {
+        $scope.$parent.setSelected(Recipes.get(index))
         $location.path('tab/recipe/' + index);
-        //#/tab/recipe/{{$index}}
     }
 })
 .controller('RecipeDetailCtrl', function ($scope, $stateParams, Recipes) {
     $scope.recipe = Recipes.get($stateParams.recipeId);
-})
-
-.controller('AccountCtrl', function ($scope, OpenFB) {
-    OpenFB.get('/me').success(function (user) {
-        $scope.user = user;
-    });
-})
-//== Ainda nao implementado
-.controller('ShareCtrl', function ($scope, OpenFB) {
-
-    $scope.item = {};
-
-    $scope.share = function () {
-        OpenFB.post('/me/feed', $scope.item)
-            .success(function () {
-                $scope.status = "This item has been shared on OpenFB";
-            })
-            .error(function(data) {
-                alert(data.error.message);
-            });
-    };
-
 });
