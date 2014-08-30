@@ -69,6 +69,27 @@ angular.module('starter.controllers', [])
         $location.path('tab/recipe/' + index);
     }
 })
-.controller('RecipeDetailCtrl', function ($scope, $stateParams, Recipes) {
+.controller('RecipeDetailCtrl', function ($http, $scope, $stateParams, Recipes) {
     $scope.recipe = Recipes.get($stateParams.recipeId);
+    $scope.sendNota = function(id, nota_receita) {
+        
+            $http({
+                    method: 'POST',
+                    url: 'http://oquecomer.herokuapp.com/setNota',
+                    data: {
+                    	'nota': nota_receita,
+                        'receita_id': id,
+                    }
+                    
+                    }).
+                success(function (data, status) {
+                	alert('Nota enviada com sucesso');
+                    console.log('done');
+                }).
+                error(function (data, status) {
+                	alert(status);
+                    alert('Falha na Conexão com a Internet');
+                }
+            );
+    }
 });
