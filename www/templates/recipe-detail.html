@@ -12,6 +12,11 @@
                 <img class="full-image" src="{{recipe.path_img}}"
                      style="max-height:270px;width:auto;border:6px groove rgba(220,20,20,0.4);margin:20px;">
             </div>
+            <h4><strong>Ingredientes</strong></h4>
+            <a ng-repeat="ingrediente in recipe.ingredientes">
+            	<p>{{ingrediente.ingrediente.nome}} {{ingrediente.quantidade}} {{ingrediente.medida}}</p>
+            </a>
+            <p></p>
             <h4><strong>Modo De Preparo</strong></h4>
             <p> {{recipe.modoPreparo}} </p>
             <h4><strong>Informação Nutricional</strong></h4>

@@ -31,7 +31,15 @@
             </thead>
             <!-- receitas do resultado da busca -->
             <tbody>
-                <p ng-show="recipes.lenght == 0">Nenhum resultado encontrado</p>
+            	
+                
+                	<div class="card" ng-show="recipes.length == 0">
+					  <div class="item item-text-wrap">
+					    Não conseguimos encontrar nenhuma receita pra você ='(
+					  </div>
+					</div>
+                	
+                	
                 <tr ng-repeat="recipe in recipes | orderBy:predicate:reverse"
                     ng-click="show(recipe.id)" style="cursor: pointer;">
                     <td class="" type="item-text-wrap">
