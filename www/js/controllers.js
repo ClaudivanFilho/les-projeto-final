@@ -72,7 +72,8 @@ angular.module('starter.controllers', [])
 .controller('RecipeDetailCtrl', function ($http, $scope, $stateParams, Recipes) {
     $scope.recipe = Recipes.get($stateParams.recipeId);
     $scope.sendNota = function(id, nota_receita) {
-        
+            var e = document.getElementById(nota_receita);
+            var nota_receita = e.options[e.selectedIndex].value;
             $http({
                     method: 'POST',
                     url: 'http://oquecomer.herokuapp.com/setNota',
@@ -87,7 +88,7 @@ angular.module('starter.controllers', [])
                     console.log('done');
                 }).
                 error(function (data, status) {
-                	alert(status);
+                	alert(nota_receita);
                     alert('Falha na Conexão com a Internet');
                 }
             );

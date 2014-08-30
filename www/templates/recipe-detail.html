@@ -24,21 +24,23 @@
             <p>
                 <a href="#" class="subdued">Nota {{recipe.notas}}</a>
             </p>
-            <a class="button button-icon icon ion-plus-circled" style="font-size:30px;"
-                       ng-click="sendNota(recipe.id, 5)"></a>
-<label class="item item-input" style="float:center">
-    <div class="input-label" style="float:center">
+            <label class="item item-input" style="float:center">
+    <div class="input-label" id='nota_dada2' style="float:center">
     	<i class="icon ion-thumbsup"></i>
         Dar Nota
-    </div>
-    <select>
-      <option>1</option>
-      <option>2</option>
-      <option selected>3</option>
-      <option>4</option>
-      <option>5</option>
+    
+    <select id='nota_dada'>
+      <option value=1>1</option>
+      <option value=2>2</option>
+      <option value=3>3</option>
+      <option value=4>4</option>
+      <option value=5>5</option>
     </select>
+    </div>
   </label>
+            <a class="button button-icon icon ion-plus-circled" style="font-size:30px;"
+                       ng-click="sendNota(recipe.id, 'nota_dada')"></a>
+
 
   	</span>
     </ion-content>
