@@ -1,4 +1,4 @@
-<ion-view title="Search" class="bg1">
+﻿<ion-view title="Search" class="bg1">
     <ion-content class="has-header padding">
         <style>
             .filt{margin-left: 5px;margin-right: 5px;}
@@ -18,12 +18,17 @@
                             ng-click="predicate = 'nota'; reverse=!reverse">
                         <i class="ion-arrow-left-b"></i>
                         <span class="filt">Nota</span>
-                        <i class="ion-arrow-right-b"></i></th>
+                        <i class="ion-arrow-right-b"></i>
+		    </th>
                     <th style="cursor: pointer"
                             ng-click="predicate = 'categoria'; reverse=!reverse">
                         <i class="ion-arrow-left-b"></i>
                         <span class="filt">Categoria</span>
+
                         <i class="ion-arrow-right-b"></i></th>
+
+                        <i class="ion-arrow-right-b"></i>
+                    </th>
                     <th style="cursor: pointer"
                             ng-click="predicate = 'tempo'; reverse=!reverse">
                         <i class="ion-arrow-left-b"></i>
@@ -58,6 +63,7 @@
                     <td>{{recipe.categoria}}</td>
                     <td>{{recipe.tempo}} hrs</td>
                     <td>{{recipe.numPessoas}}</td>
+                    <td>{{recipe.numPessoas}} Pessoas</td>
                 </tr>
             </tbody>
         </table>
