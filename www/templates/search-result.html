@@ -43,8 +43,8 @@
                 <tr ng-repeat="recipe in recipes | orderBy:predicate:reverse"
                     ng-click="show(recipe.id)" style="cursor: pointer;">
                     <td class="" type="item-text-wrap">
-                        <label  class="ion-fork" style="font-size:30px;margin-left:20px;" >
-                        </label>
+                        <img class="full-image" src="{{recipe.path_img}}"
+                     style="max-height:90px;width:auto;border:6px groove rgba(220,20,20,0.4);margin:20px;">
                         <i style="margin-left:20px;">{{recipe.nome}}</i>
                     </td>
                     <td>{{recipe.nota}} </td>
