@@ -68,29 +68,41 @@ angular.module('starter.controllers', [])
         $scope.$parent.setSelected(Recipes.get(index))
         $location.path('tab/recipe/' + index);
     }
+    $scope.getNota = function(rct) {
+        var sum = 0;
+        for (var $index in rct.notas) {
+            sum += rct.notas[$index].nota;
+        }
+        if (rct.notas.length == 0) {
+            return 'não possui';
+        }
+        return (sum/rct.notas.length);
+    }
 })
 .controller('RecipeDetailCtrl', function ($http, $scope, $stateParams, Recipes) {
     $scope.recipe = Recipes.get($stateParams.recipeId);
     $scope.sendNota = function(id, nota_receita) {
-            var e = document.getElementById(nota_receita);
-            var nota_receita = e.options[e.selectedIndex].value;
             $http({
-                    method: 'POST',
-                    url: 'http://oquecomer.herokuapp.com/setNota',
-                    data: {
-                    	'nota': nota_receita,
-                        'receita_id': id,
-                    }
-                    
+                    method: 'GET',
+                    url: 'http://oquecomer.herokuapp.com/api/setNota?nota=' + nota_receita
+                        + '&receita_id=' + id
                     }).
                 success(function (data, status) {
-                	alert('Nota enviada com sucesso');
-                    console.log('done');
+                    alert('Nota enviada com sucesso');
                 }).
                 error(function (data, status) {
-                	alert(nota_receita);
                     alert('Falha na Conexão com a Internet');
                 }
             );
+    }
+    $scope.getNota = function(rct) {
+        var sum = 0;
+        for (var $index in rct.notas) {
+            sum += rct.notas[$index].nota;
+        }
+        if (rct.notas.length == 0) {
+            return 'não possui';
+        }
+        return (sum/rct.notas.length);
     }
 });
