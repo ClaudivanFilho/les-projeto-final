@@ -68,6 +68,18 @@ angular.module('starter.controllers', [])
         $scope.$parent.setSelected(Recipes.get(index))
         $location.path('tab/recipe/' + index);
     }
+    $scope.verificaStar = function(ingreds) {
+        $contidos = 0;
+        for (var $index in ingreds) {
+            if ($scope.ingredientes.indexOf(ingreds[$index].ingrediente.nome) != -1) {
+                $contidos += 1;
+            }
+        }
+        if ($contidos == ingreds.length) {
+            return true;
+        }
+        return false;
+    }
     $scope.getNota = function(rct) {
         var sum = 0;
         for (var $index in rct.notas) {

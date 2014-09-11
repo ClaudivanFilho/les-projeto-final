@@ -1,6 +1,7 @@
 <ion-view title="{{recipe.nome}}">
 
-    <ion-content has-header="true" padding="true" overflow-scroll="true" style="height:85%;">
+
+    <ion-content class="has-header padding">
 
   	<span class="item">
         <div class="item item-avatar">
@@ -18,17 +19,17 @@
             </a>
             <p></p>
             <h4><strong>Modo De Preparo</strong></h4>
-            <p> {{recipe.modoPreparo}} </p>
+            <textarea style="font-size:14px;">-{{recipe.modoPreparo}}</textarea>
+            <br>
             <h4><strong>Informação Nutricional</strong></h4>
-            <p> {{recipe.infoNutri}} </p>
+            <textarea style="font-size:14px;">-{{recipe.infoNutri}}</textarea>
             <label>
                 <a href="#" class="subdued">Nota: {{getNota(recipe)}}</a>
             </label><br>
             <label >Dar Nota</label><br>
             <input class="col-sm-3" type="number" max="10" ng-model="nota" value="0" style="border:1px solid;">
-  </label>
+            </label>
             <button ng-click="sendNota(recipe.id, nota)" style="margin: 5px;">ok</button>
-
 
   	</span>
     </ion-content>
